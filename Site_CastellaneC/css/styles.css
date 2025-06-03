@@ -1,0 +1,289 @@
+/* styles.css - Version finale avec boutons Annuler/Connexion */
+
+/* Réinitialisation des styles par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style général du corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Centrer le contenu */
+center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Style du titre principal */
+h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Style de la barre de navigation */
+#navbar {
+    background-color: #34495e;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#navbar a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+#navbar a:hover {
+    color: #f1c40f;
+}
+
+#navbar img {
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+#navbar img:hover {
+    transform: scale(1.1);
+}
+
+/* Style des sections de contenu */
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Style des formulaires */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+form table {
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+form table td {
+    padding: 5px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="date"],
+form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    width: 100%;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form input[type="date"]:focus,
+form select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Styles des boutons - Version finale */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 8px 5px;
+    min-width: 120px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Bouton standard (bleu) */
+button,
+input[type="button"],
+input[type="submit"] {
+    background-color: #3498db;
+}
+
+/* Bouton Annuler spécifique (gris) */
+input[type="reset"] {
+    background-color: #95a5a6;
+}
+
+/* Styles au survol */
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input[type="reset"]:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style des messages */
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.success-message {
+    color: #2ecc71;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Style du footer */
+#footer {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 30px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 40px;
+}
+
+#footer #contact {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+#footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 800px;
+}
+
+#footer ul li {
+    margin: 5px 0;
+}
+
+#footer ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#footer ul li a:hover {
+    color: #f1c40f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #navbar {
+        padding: 10px;
+    }
+
+    #navbar a {
+        font-size: 1rem;
+        margin: 0 10px;
+    }
+
+    .container {
+        padding: 15px;
+        width: 95%;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="email"],
+    form input[type="date"],
+    form select {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+        min-width: 100px;
+    }
+
+    #footer ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Style du bouton S'inscrire */
+.btn-inscription {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-inscription:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,56 @@
+<h2> Gestion des Examens </h2>
+
+<?php
+// Vérifier si l'utilisateur est un administrateur
+if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
+    $leExamen = null;
+
+    // Gérer les actions (suppression ou modification)
+    if (isset($_GET['action']) && isset($_GET['idexamen'])) {
+        $action = $_GET['action'];
+        $idexamen = $_GET['idexamen'];
+
+        switch ($action) {
+            case 'sup':
+                // Supprimer un examen
+                $unControleur->deleteExamen($idexamen);
+                echo "<br> Suppression réussie.";
+                break;
+
+            case 'edit':
+                // Récupérer les informations de l'examen pour la modification
+                $leExamen = $unControleur->selectWhereExamen($idexamen);
+                break;
+        }
+    }
+
+    // Inclure le formulaire d'insertion ou de modification
+    require_once("vue/vue_insert_examen.php");
+
+    // Traitement du formulaire d'insertion
+    if (isset($_POST["Valider"])) {
+        // Insérer les données dans la base
+        $unControleur->insertExamen($_POST);
+        echo "<br> Insertion réussie.";
+    }
+
+    // Traitement du formulaire de modification
+    if (isset($_POST["Modifier"])) {
+        // Mettre à jour les données dans la base
+        $unControleur->updateExamen($_POST);
+        // Actualiser la page
+        header("Location: index.php?page=8");
+    }
+}
+
+// Récupérer les examens de la base de données
+if (isset($_POST['Filtrer'])) {
+    $filtre = $_POST['filtre'];
+} else {
+    $filtre = "";
+}
+$lesExamens = $unControleur->selectAllExamens($filtre);
+
+// Inclure la vue pour afficher les examens
+require_once("vue/vue_select_examens.php");
+?>
